@@ -6,3 +6,6 @@ export const headerClass = "w-[100%] h-[4em] flex justify-between items-center p
 export const pageHeaderClass = "w-[100%] h-[calc(100vh-4em)]";
 export const productBoxClass = "w-[100%] grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]";
 
+
+export const btnClass = "bg-[var(--dark-blue)] p-[5px] px-[20px] rounded-[100px] font-[500] cursor-pointer my-[20px] text-[var(--white)]";
+export const btnsClass = ['bg-[var(--dark-blue)] p-[5px] px-[20px] rounded-[100px] font-[500] cursor-pointer my-[20px] text-[var(--white)]','bg-[var(--gray)]  p-[5px] px-[20px] rounded-[100px] font-[500] cursor-pointer my-[20px] text-[var(--dark-blue)] mr-[1em]'];
