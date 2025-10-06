@@ -11,13 +11,12 @@ export default function SignUpPage(){
             </div>
             <div className="h-[calc(100%-4em)] w-[100%] flex justify-center items-center ">
                 <form action="" className="">
-                    <h1 className="font-[600] text-[1.6em] text-[var(--dark-blue)] text-center">Sign Up</h1>
-                    <p className="font-[400] text-[.8em] text-center text-[var(--black)]">Join the best resturante app</p>
-                    <FormInput placeholder="joe" label='name' />
+                    <h1 className="font-[600] text-[1.6em] text-[var(--dark-blue)] text-center">Log In</h1>
+                    <p className="font-[400] text-[.8em] text-center text-[var(--black)]">Welcome back to resturante app</p>
                     <FormInput placeholder="joe@example.com" label='email' type='email' />
                     <FormInput placeholder="12345678" label='password' type="password" />
-                    <button className="bg-[var(--dark-blue)] mx-[auto] block p-[5px] px-[20px] rounded-[100px] font-[500] cursor-pointer my-[20px] text-[var(--white)]">Sign Up</button>
-                    <Link className="text-center block text-[.8em]" href="/log-in" >already have account ?!</Link>
+                    <button className="bg-[var(--dark-blue)] mx-[auto] block p-[5px] px-[20px] rounded-[100px] font-[500] cursor-pointer my-[20px] text-[var(--white)]">Log In</button>
+                    <Link className="text-center block text-[.8em]" href="/sign-up" >don't you have an account ?!</Link>
                 </form>
             </div>
         </div>
