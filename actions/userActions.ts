@@ -1,8 +1,10 @@
 'use server';
 
 import connectDB from "@/lib/mongodb";
+import { models } from 'mongoose';
 import User from '@/lib/models/User';
 import bcrypt from 'bcrypt';
+import { createAuthSession } from "./authActions";
 
 export async function createUser(prevState: any,formData : FormData){
     const name = formData.get('name') as string;
@@ -32,28 +34,32 @@ export async function createUser(prevState: any,formData : FormData){
     }
 
     try{
-        const users = await User.find({email});
-        if(users.length){
-            return{
-                errors: 'this email is already exist',
-            };
+        await connectDB();
+        if(models.User){
+            const users = await User?.find({email});
+            if(users?.length){
+                return{
+                    errors: 'this email is already exist',
+                };
+            }
         }
         const salt = await bcrypt.genSalt(12);
         const hashedPassword = await bcrypt.hash(password, salt);
-
-        await connectDB();
         const user = await User.create({
             name,
             email,
             password: hashedPassword
         });
-        // create a session 
+        
+        const session = await createAuthSession(user._id.toString());
+        if(!session){
+            throw new Error('error with creating session');
+        }
         return{
             message: 'user created successfully',
         };
-
-
     }catch(err){
+        console.log(err);
         return {
             errors: 'somthing went wrong'
         };

@@ -7,21 +7,18 @@ import { useActionState, useState } from "react";
 
 
 export default function SignUpPage(){
-
     const [name,setName] = useState<string>('');
     const [email,setEmail] = useState<string>('');
     const [password,setPassword] = useState<string>('');
-
     const [formState, formAction] = useActionState(createUser, {});
     const validationErrors = formState.errors as string;
-
 
     return (
         <div className="w-[100%] h-[100vh] ">
             <div className="w-[100%] h-[4em]  flex items-center">
                 <AppLogo></AppLogo>
             </div>
-            <div className="h-[calc(100%-4em)] w-[100%] flex justify-center items-center ">
+            <div className="h-[calc(100%-4em)] w-[100%] flex justify-center items-center relative">
                 <form action={formAction} className="">
                     <h1 className="font-[600] text-[1.6em] text-[var(--dark-blue)] text-center">Sign Up</h1>
                     <p className="font-[400] text-[.8em] text-center text-[var(--black)]">Join the best resturante app</p>
