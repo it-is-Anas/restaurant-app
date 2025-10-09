@@ -2,6 +2,7 @@
 import { createUser } from "@/actions/userActions";
 import AppLogo from "@/components/app-logo/app-logo";
 import FormInput from "@/components/inputs/form-inputs";
+import FormBtn from "@/components/loading/form-btn/form-btn";
 import Link from "next/link";
 import { useActionState, useState } from "react";
 
@@ -25,7 +26,7 @@ export default function SignUpPage(){
                     <FormInput value={name} setValue={(event)=>setName(event.target.value)} name='name' placeholder="joe" label='name' />
                     <FormInput value={email} setValue={(event)=>setEmail(event.target.value)} name='email' placeholder="joe@example.com" label='email' type='email' />
                     <FormInput value={password} setValue={(event)=>setPassword(event.target.value)} name='password' placeholder="*********" label='password' type="password" />
-                    <button className="bg-[var(--dark-blue)] mx-[auto] block p-[5px] px-[20px] rounded-[100px] font-[500] cursor-pointer my-[20px] text-[var(--white)]">Sign Up</button>
+                    <FormBtn />
                     <Link className="text-center block text-[.8em]" href="/log-in" >already have account ?!</Link>
                     {
                         validationErrors &&
